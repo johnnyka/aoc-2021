@@ -1,3 +1,3 @@
-import { countIncreased as puzzle1a } from './puzzle1'
+import { getIncreased } from './puzzle1'
 
-puzzle1a()
+getIncreased().then((count) => console.log('1, part 1:', count))

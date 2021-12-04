@@ -1,12 +1,18 @@
-import { input } from './data'
+import { readFile } from 'fs/promises'
+import path from 'path'
+import { toArrayOfNumbers } from '../helpers'
 
-let count = 0
-export const countIncreased = () => {
-  input.reduce((prev, curr) => {
+const fileName = path.resolve(__dirname, 'data.txt')
+
+const countIncreased = (data: number[]) => {
+  let count = 0
+  data.reduce((prev, curr) => {
     curr > prev ? count++ : null
     return curr
   })
 
-  console.log('1a:', count)
   return count
 }
+
+export const getIncreased = () =>
+  readFile(fileName, 'utf8').then(toArrayOfNumbers).then(countIncreased)
