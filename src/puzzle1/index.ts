@@ -3,6 +3,7 @@ import path from 'path'
 import { toArrayOfNumbers } from '../helpers'
 
 const fileName = path.resolve(__dirname, 'data.txt')
+const getData = () => readFile(fileName, 'utf8').then(toArrayOfNumbers)
 
 const countIncreased = (data: number[]) => {
   let count = 0
@@ -13,8 +14,6 @@ const countIncreased = (data: number[]) => {
 
   return count
 }
-
-const getData = () => readFile(fileName, 'utf8').then(toArrayOfNumbers)
 
 // Part 1.
 export const getIncreased = () => getData().then(countIncreased)
